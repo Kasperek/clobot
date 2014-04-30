@@ -1,10 +1,7 @@
-import json
 
-class ProductPipeline(object):
-    def __init__(self):
-        self.file = open('jcrew', 'wb')
+class ProductItemPipeline(object):
     
     def process_item(self, item, spider):
-        line = json.dumps(dict(item)) + "\n"
-        self.file.write(line)
+        item['brand'] = item['brand'].upper()
+        item['category'] = item['category'].upper()
         return item

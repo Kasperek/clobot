@@ -8,4 +8,3 @@ class ProductItem(Item):
     category = Field()
     description = Field()
     price = Field()
-    testUrl = Field()
