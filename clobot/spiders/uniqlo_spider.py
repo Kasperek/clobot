@@ -22,6 +22,6 @@ class UniqloSpider(CrawlSpider):
         product['name'] = sel.xpath("//meta[@property='og:title']/@content").extract()
         product['image'] = sel.xpath("//meta[@property='og:image']/@content").extract()
         product['brand'] = "UNIQLO"
-        product['category'] = response.url.split('/')[4]
+        product['category'] = (''.join(response.url.split('/')[4]))+'s'
         product['description'] = sel.xpath("//meta[@name='description']/@content").extract()
         return product

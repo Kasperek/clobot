@@ -19,5 +19,4 @@ class JCrewSpider(SitemapSpider):
         product['brand'] = "J.CREW"
         product['category'] = (response.url.split('/')[3]).split('_')[0]
         product['description'] = sel.xpath("//meta[@name='description']/@content").extract()
-        
         return product
