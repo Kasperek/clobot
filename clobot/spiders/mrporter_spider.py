@@ -19,9 +19,9 @@ class MrPorterSpider(CrawlSpider):
         print(response)
         product = ProductItem()
         product['url'] = response.url
-        product['name'] = sel.xpath("//meta[@property='og:title']/@content").extract()
+        product['name'] = (''.join(sel.xpath("//meta[@property='og:title']/@content").extract())).split('|')[0]
         product['image'] = sel.xpath("//meta[@property='og:image']/@content").extract()
-        product['brand'] = product['name'][0].split(' -')[0]
+        product['brand'] = product['name'].split(' -')[0]
         product['category'] = "MENS"
-        product['description'] = sel.xpath("//meta[@name='description']/@content").extract()
+        product['description'] = ''.join(sel.xpath("//meta[@name='description']/@content").extract())
         return product

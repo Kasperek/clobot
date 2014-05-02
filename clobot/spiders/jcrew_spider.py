@@ -14,9 +14,9 @@ class JCrewSpider(SitemapSpider):
         sel = Selector(response)
         product = ProductItem()
         product['url'] = response.url
-        product['name'] = sel.xpath("//meta[@property='og:title']/@content").extract()
+        product['name'] = ''.join(sel.xpath("//meta[@property='og:title']/@content").extract())
         product['image'] = sel.xpath("//meta[@property='og:image']/@content").extract()
         product['brand'] = "J.CREW"
         product['category'] = (response.url.split('/')[3]).split('_')[0]
-        product['description'] = sel.xpath("//meta[@name='description']/@content").extract()
+        product['description'] = ''.join(sel.xpath("//meta[@name='description']/@content").extract())
         return product

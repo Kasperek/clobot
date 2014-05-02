@@ -1,7 +1,7 @@
 from scrapy.exceptions import DropItem
 from w3lib.html import remove_comments, remove_tags, remove_entities
 
-class InvalidItemPipeline(object):
+class InvalidPipeline(object):
     """A pipeline for filtering out items that 
     do not contain the minimum required data.
     """
@@ -16,18 +16,24 @@ class InvalidItemPipeline(object):
         else:
             return item
         
-class ProductItemPipeline(object):
-    """A pipeline for sanitizing items by removing the html 
-    in the description and various other vanity changes.
+class SanitizationPipeline(object):
+    """A pipeline for sanitizing items by removing html and converting 
+    encoding to ascii as well as other various other vanity changes.
     """
     
     def process_item(self, item, spider):
         item['brand'] = item['brand'].upper()
         item['category'] = item['category'].upper()
-        item['name'] = ''.join(item['name']).encode('ascii', 'ignore')
-        item['description'] = ProductItemPipeline.cleanHtml(''.join(item['description']))
+        item['name'] = SanitizationPipeline.clean(item['name'])
+        item['description'] = SanitizationPipeline.clean(item['description'])
         return item
 
     @staticmethod
+    def clean(s):
+        return SanitizationPipeline.cleanHtml(s).strip()
+        
+    @staticmethod
     def cleanHtml(html):
         return remove_comments(remove_tags(remove_entities(html))).encode('ascii','ignore')
+    
+
