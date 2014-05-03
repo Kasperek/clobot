@@ -13,6 +13,8 @@ class InvalidPipeline(object):
             raise DropItem("Missing item category in %s" %item)
         elif not item['brand']:
             raise DropItem("Missing item brand in %s" %item)
+        elif not item['description']:
+            raise DropItem("Missing item description in %s" %item)
         else:
             return item
         
@@ -26,6 +28,7 @@ class SanitizationPipeline(object):
         item['category'] = item['category'].upper()
         item['name'] = SanitizationPipeline.clean(item['name'])
         item['description'] = SanitizationPipeline.clean(item['description'])
+        item['color'] = SanitizationPipeline.clean(item['color']).upper()
         return item
 
     @staticmethod

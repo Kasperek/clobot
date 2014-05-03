@@ -24,4 +24,5 @@ class MrPorterSpider(CrawlSpider):
         product['brand'] = product['name'].split(' -')[0]
         product['category'] = "MENS"
         product['description'] = ''.join(sel.xpath("//meta[@name='description']/@content").extract())
+        product['color'] = ''.join(sel.xpath("//div[@id='colour-text']/span[@class='colour']/text()").extract())
         return product

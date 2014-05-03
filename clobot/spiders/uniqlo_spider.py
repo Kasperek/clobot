@@ -23,4 +23,5 @@ class UniqloSpider(CrawlSpider):
         product['brand'] = "UNIQLO"
         product['category'] = (''.join(response.url.split('/')[4]))+'s'
         product['description'] = ''.join(sel.xpath("//meta[@name='description']/@content").extract())
+        product['color'] = ''.join(sel.xpath("//span[@itemprop='color']/text()").extract())
         return product

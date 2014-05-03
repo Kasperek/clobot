@@ -7,4 +7,4 @@ class ProductItem(Item):
     brand = Field()
     category = Field()
     description = Field()
-    price = Field()
+    color = Field()

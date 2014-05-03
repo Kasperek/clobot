@@ -19,4 +19,6 @@ class JCrewSpider(SitemapSpider):
         product['brand'] = "J.CREW"
         product['category'] = (response.url.split('/')[3]).split('_')[0]
         product['description'] = ''.join(sel.xpath("//meta[@name='description']/@content").extract())
+        #setting color to empty string because page returned by jcrew to crawlers does not contain  product color information
+        product['color'] = ''
         return product

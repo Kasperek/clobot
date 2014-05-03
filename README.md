@@ -19,14 +19,14 @@ Spider: jcrew
 
 The `jcrew_spider` scrapes [J.Crew](https://www.jcrew.com). It is a SitemapSpider meaning that it crawls the pages matching the regex defined within the spider.
 
+Spider: mrporter
+------
+The `mrporter_spider` scrapes [MR PORTER](http://www.mrporter.com). It is a CrawlSpider, it will crawl all of the pages matching the defined regex.
+
 Spider: uniqlo
 ------
 
-The `uniqlo_spider` scrapes [Uniqlo](http://www.uniqlo.com). It is a CrawlSpider, it will crawl all of the pages matching the defined regex.
-
-Spider: mrporter
-------
-The `mrporter_spider` scrapes [MR PORTER](http://www.mrporter.com). It is a CrawlSpider like `uniqlo_spider`
+The `uniqlo_spider` scrapes [Uniqlo](http://www.uniqlo.com). It is a CrawlSpider like `mrporter_spider`.
 
 Pipelines
 ======
