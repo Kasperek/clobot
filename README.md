@@ -13,19 +13,17 @@ clobot.items.ProductItem
 Spiders
 ======
 This project contains several spiders, each of the spiders are responsible for scraping the product items from their accompanying retailer website.
- 
-Spider: jcrew
-------
 
+jcrew
+------
 The `jcrew_spider` scrapes [J.Crew](https://www.jcrew.com). It is a SitemapSpider meaning that it crawls the pages matching the regex defined within the spider.
 
-Spider: mrporter
+mrporter
 ------
 The `mrporter_spider` scrapes [MR PORTER](http://www.mrporter.com). It is a CrawlSpider, it will crawl all of the pages matching the defined regex.
 
-Spider: uniqlo
+uniqlo
 ------
-
 The `uniqlo_spider` scrapes [Uniqlo](http://www.uniqlo.com). It is a CrawlSpider like `mrporter_spider`.
 
 Pipelines
@@ -47,7 +45,7 @@ Sample command running the `jcrew_spider`and exporting output to jcrewitems.json
 scrapy crawl jcrew -o jcrewitems.json -t json
 ```
 
-Sample output
+Sample output:
 ```
 {"category": "MENS", "name": "484 selvedge jean in raw indigo", "url": "https://www.jcrew.com/mens_category/pants/Denim/PRDOVR~18975/18975.jsp", "image": ["https://s7.jcrew.com/is/image/jcrew/18975_WO6473_m?$pdp_fs418$"], "color": "", "brand": "J.CREW", "description": "Our slimmest fit yet, for guys who like their denim slim, not skinny. This is the 484 for the denim purist: It's made from genuine raw indigo selvedge cotton woven at one of Japan's oldest and most renowned mills. For those not in the know, raw denim (also called \"rigid\" or \"dry denim\") feels stiffer at first and then fades and distresses according to the individual wearer; in other words, these are as authentic as it gets. Sits below waist.Extra slim through hip and thigh, with our narrowest leg.14\" leg opening (based off size 32/32).Selvedge cotton.Button fly.Traditional 5-pocket styling.Machine wash.Import.Since these are indigo dyed, they're prone to crocking, or color transfer, so wear (and wash) them with dark colors till they're worn in."},
 ```
