@@ -38,7 +38,8 @@ SanitizationPipeline
 ------
 A pipeline for sanitizing items by removing html and converting encoding to ascii as well as other various other vanity changes.
 
-Usage:
+Usage
+======
 In order to run a spider, run scrapy crawl spidername with a feed export defined. More information on feed export configuration can be found at [Scrapy Feed exports](http://doc.scrapy.org/en/latest/topics/feed-exports.html).
 
 Sample command running the `jcrew_spider`and exporting output to jcrewitems.json in json format: 
@@ -46,5 +47,8 @@ Sample command running the `jcrew_spider`and exporting output to jcrewitems.json
 scrapy crawl jcrew -o jcrewitems.json -t json
 ```
 
-
+Sample output
+```
+{"category": "MENS", "name": "484 selvedge jean in raw indigo", "url": "https://www.jcrew.com/mens_category/pants/Denim/PRDOVR~18975/18975.jsp", "image": ["https://s7.jcrew.com/is/image/jcrew/18975_WO6473_m?$pdp_fs418$"], "color": "", "brand": "J.CREW", "description": "Our slimmest fit yet, for guys who like their denim slim, not skinny. This is the 484 for the denim purist: It's made from genuine raw indigo selvedge cotton woven at one of Japan's oldest and most renowned mills. For those not in the know, raw denim (also called \"rigid\" or \"dry denim\") feels stiffer at first and then fades and distresses according to the individual wearer; in other words, these are as authentic as it gets. Sits below waist.Extra slim through hip and thigh, with our narrowest leg.14\" leg opening (based off size 32/32).Selvedge cotton.Button fly.Traditional 5-pocket styling.Machine wash.Import.Since these are indigo dyed, they're prone to crocking, or color transfer, so wear (and wash) them with dark colors till they're worn in."},
+```
 
